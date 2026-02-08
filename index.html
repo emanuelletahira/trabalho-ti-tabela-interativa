@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Projeto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="particulas">
+    <span class="particula" style="left:10%; animation-duration:12s;"></span>
+    <span class="particula" style="left:25%; animation-duration:18s;"></span>
+    <span class="particula" style="left:40%; animation-duration:14s;"></span>
+    <span class="particula" style="left:55%; animation-duration:20s;"></span>
+    <span class="particula" style="left:70%; animation-duration:16s;"></span>
+    <span class="particula" style="left:85%; animation-duration:22s;"></span>
+</div>
+
+<div class="layout">
+
+    <div class="area area1">
+        <img src="thr.gif" class="logo">
+    </div>
+
+  <div class="area area2 video-box">
+    
+    <div class="area area2">
+    <div class="video-box">
+        <iframe 
+            src="https://www.youtube.com/embed/BGwIUanHOH0"
+            title="YouTube video"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+</div>
+
+    <div class="area area3">
+        <button onclick="mostrarConteudo(1)" class="btn-game a">A</button>
+        <button onclick="mostrarConteudo(2)" class="btn-game b">B</button>
+        <button onclick="mostrarConteudo(3)" class="btn-game x">X</button>
+        <button onclick="mostrarConteudo(4)" class="btn-game y">Y</button>
+
+        <button class="btn-game cadastro" onclick="abrirCadastro()">Cadastro</button>
+        <button onclick="window.location.href='lista.html'" class="btn-game lista">Lista</button>
+
+        <hr>
+    </div>
+
+    <div class="area area4" id="conteudo">
+
+        <div class="cadastro-box" id="cadastroBox" style="display:none">
+    <h2>Cadastro</h2>
+
+    <form id="formCadastro">
+        <div class="campo">
+            <label>Nome completo</label>
+            <input type="text" id="nome" required>
+        </div>
+
+        <div class="campo">
+            <label>Data de nascimento</label>
+            <input type="date" id="nascimento" required>
+        </div>
+
+        <div class="campo">
+            <label>Email</label>
+            <input type="email" id="email">
+        </div>
+
+        <div class="campo">
+            <label>CPF</label>
+            <input type="text" id="cpf" required>
+        </div>
+
+        <div class="campo">
+            <label>Endereço</label>
+            <input type="text" id="endereco" required>
+        </div>
+
+        <button type="submit" class="btn-game salvar">Salvar cadastro</button>
+    </form>
+</div>
+            
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>

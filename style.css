@@ -1,0 +1,269 @@
+/* RESET */
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, #1b0033, #050008);
+    font-family: Arial, sans-serif;
+    color: white;
+   overflow-x: hidden;
+overflow-y: auto;
+}
+
+/* PARTICULAS */
+.particulas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.particula {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    animation: subir linear infinite;
+}
+.particulas {
+    position: fixed;
+    inset: 0;
+}
+
+
+@keyframes subir {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+
+/* LAYOUT */
+.layout {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 180px 1fr;
+    grid-template-areas:
+        "a1 a2 a2"
+        "a3 a4 a4";
+}
+
+/* AREAS */
+.area1 { /* logo */
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-left: 40%;
+}
+
+.area2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    padding-left: 100px;
+}
+
+.video-box {
+    width: 100%;          /* ocupa só a célula */
+    max-width: 360px;     /* deixa menor */
+    aspect-ratio: 16/9;
+}
+
+.video-box iframe {
+    width: 150%;
+    height: 150%;
+    border-radius: 12px;
+}
+
+.area3 { /* BOTÕES */
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 50px;
+    
+}
+
+.area4 { /* CONTEÚDO DINÂMICO */
+    display: flex;
+    justify-content: flex-end; /* empurra tudo pra direita */
+    grid-column: 2;
+    grid-row: 2;
+    padding: 90px;
+    padding-right: 400px;
+    max-width: 350px;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+
+/* LOGO */
+.logo {
+    max-width: 180%;
+    max-height: 180%;
+}
+
+/* BOTÕES GAME */
+.btn-game {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+
+    background: radial-gradient(circle at top left, #ff66cc, #8e2de2);
+
+    box-shadow:
+        0 6px 0 #4b007d,
+        0 12px 20px rgba(0,0,0,0.6);
+
+    transition: 0.15s;
+}
+
+.btn-game:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 2px 0 #4b007d,
+        0 6px 12px rgba(0,0,0,0.6);
+}
+
+/* CORES */
+.a { background:#ff3cac; }
+.b { background:#d500f9; }
+.x { background:#ff0080; }
+.y { background:#ff004c; }
+
+/* BOTÕES AÇÃO (CADASTRO / LISTA) */
+.btn-action {
+    width: 140px;
+    height: 45px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #ff66cc, #8e2de2);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+}
+
+.btn-action:hover {
+    filter: brightness(1.2);
+}
+/* AREA 4 */
+.area4 img {
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+.btn-game.cadastro,
+.btn-game.lista {
+    width: 140px;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 1rem;
+}
+cadastro-box {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(20, 0, 40, 0.85);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow:
+        0 0 25px rgba(255, 0, 200, 0.3),
+        0 0 60px rgba(140, 0, 255, 0.2);
+
+    animation: aparecer 0.5s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.cadastro-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff66cc;
+    text-shadow: 0 0 10px rgba(255, 102, 204, 0.7);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.campo label {
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+.campo input {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #12001f;
+    color: white;
+    font-size: 0.95rem;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
+}
+
+.campo input:focus {
+    box-shadow:
+        0 0 10px rgba(255, 102, 204, 0.8),
+        inset 0 0 8px rgba(0,0,0,0.7);
+}
+
+.btn-game.salvar {
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+/* ===== ANIMAÇÃO DE GIRO ===== */
+@keyframes giroBotao {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.btn-game.girando {
+    animation: giroBotao 0.6s ease;
+}
+.conteudo-dinamico img {
+    width: 300px;        /* tamanho da imagem */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 12px;
+    text-align: center;
+}

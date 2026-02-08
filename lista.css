@@ -1,0 +1,117 @@
+html, body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #1b0033, #050008);
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== PARTÍCULAS ===== */
+.particulas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particula {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    animation: flutuar linear infinite;
+}
+
+.particula:nth-child(1){ left:10%; animation-duration:12s; }
+.particula:nth-child(2){ left:35%; animation-duration:18s; }
+.particula:nth-child(3){ left:60%; animation-duration:15s; }
+.particula:nth-child(4){ left:85%; animation-duration:20s; }
+
+@keyframes flutuar {
+    from { transform: translateY(100vh); opacity: 0; }
+    to   { transform: translateY(-10vh); opacity: 1; }
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* ===== TOPO ===== */
+.topo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.topo input {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    flex: 1;
+}
+
+/* ===== BOTÕES ===== */
+.btn {
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background: radial-gradient(circle at top left, #ff66cc, #8e2de2);
+    box-shadow: 0 6px 0 #4b007d;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #4b007d;
+}
+
+.voltar {
+    background: radial-gradient(circle at top left, #999, #444);
+}
+
+/* ===== LISTA ===== */
+.lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 0 15px rgba(142,45,226,0.3);
+}
+
+.card strong {
+    color: #ff66cc;
+}
+
+.card button {
+    margin-top: 12px;
+    background: radial-gradient(circle at top left, #ff004c, #8b0000);
+}
+.cardCadastro {
+    background: rgba(255,255,255,0.08);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    backdrop-filter: blur(6px);
+}
