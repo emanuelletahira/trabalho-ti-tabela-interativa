@@ -1,0 +1,48 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, #1b0033, #050008);
+    font-family: Arial, sans-serif;
+    color: white;
+   overflow-x: hidden;
+overflow-y: auto;
+}
+
+.qrcode {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    max-width: 80%;
+    max-height: 80%;
+}
+
+
+/* PARTICULAS */
+.particulas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.particula {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    animation: subir linear infinite;
+}
+.particulas {
+    position: fixed;
+    inset: 0;
+}
+
+
+@keyframes subir {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
