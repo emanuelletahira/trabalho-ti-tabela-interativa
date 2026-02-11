@@ -1,138 +1,98 @@
-/* RESET */
-html, body {
+/* RESET BÁSICO */
+body {
     margin: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top, #1b0033, #050008);
-    font-family: Arial, sans-serif;
-    color: white;
-   overflow-x: hidden;
-overflow-y: auto;
-}
-
-/* PARTICULAS */
-.particulas {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-}
-
-.particula {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: rgba(255,255,255,0.5);
-    border-radius: 50%;
-    animation: subir linear infinite;
-}
-.particulas {
-    position: fixed;
-    inset: 0;
-}
-
-
-@keyframes subir {
-    from { transform: translateY(100vh); }
-    to { transform: translateY(-10vh); }
-}
-
-/* LAYOUT */
-.layout {
-    position: relative;
-    z-index: 1;
-    height: 100vh;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: 180px 1fr;
-    grid-template-areas:
-        "a1 a2 a2"
-        "a3 a4 a4";
-}
-
-/* AREAS */
-.area1 { /* logo */
-    grid-column: 1;
-    grid-row: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 20px;
-    padding-left: 40%;
+    background: #200329;
+    font-family: Arial, sans-serif;
+}
+/* TABELA */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px;
 }
 
-.area2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2px;
-    padding-left: 100px;
+/* FUNDO DAS CÉLULAS (VISUAL GERAL) */
+td {
+    background: linear-gradient(
+        135deg,
+        #200329,
+        #200329,
+        #200329
+    );
+    border-radius: 14px;
+    box-shadow:
+        inset 0 0 25px rgb(80, 2, 49),
+        0 0 20px rgb(80, 2, 49);
 }
 
-.video-box {
-    width: 100%;          /* ocupa só a célula */
-    max-width: 360px;     /* deixa menor */
-    aspect-ratio: 16/9;
+/* MANTÉM MESMA COR EM TODAS AS CÉLULAS, MESMO COM MÍDIA */
+td:has(img),
+td:has(video),
+td:has(iframe) {
+    background: linear-gradient(
+        135deg,
+        #200329,
+        #200329,
+        #200329
+    );
+    box-shadow:
+        inset 0 0 25px rgba(80, 2, 49),
+        0 0 20px rgb(80, 2, 49);
 }
 
-.video-box iframe {
-    width: 150%;
-    height: 150%;
-    border-radius: 12px;
-}
-
-.area3 { /* BOTÕES */
-    grid-column: 1;
-    grid-row: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 50px;
+/* IMAGEM */
+td img {
+    background: transparent;
+    display: block;
     
 }
 
-.area4 { /* CONTEÚDO DINÂMICO */
-    display: flex;
-    justify-content: flex-end; /* empurra tudo pra direita */
-    grid-column: 2;
-    grid-row: 2;
-    padding: 90px;
-    padding-right: 400px;
-    max-width: 350px;
-    width: 100%;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    align-items: center;
+/* VÍDEO */
+td video {
+    background: transparent;
+    border-radius: 12px;
 }
 
-
+/* IFRAME */
+iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+}
 /* LOGO */
 .logo {
-    max-width: 180%;
-    max-height: 180%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /* BOTÕES GAME */
 .btn-game {
     width: 90px;
     height: 90px;
+    margin: 15px auto;
     border-radius: 50%;
-    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 2rem;
     font-weight: bold;
     color: white;
-    cursor: pointer;
-
-    background: radial-gradient(circle at top left, #ff66cc, #8e2de2);
+    text-decoration: none;
+     background: radial-gradient(circle at top left, #ff66cc, #8e2de2);
 
     box-shadow:
         0 6px 0 #4b007d,
         0 12px 20px rgba(0,0,0,0.6);
 
     transition: 0.15s;
+    border: none;
+    box-shadow:
+        inset 0 0 10px rgb(255, 255, 255),
+        0 8px 15px rgba(0,0,0,0.4);
+    transition: transform 0.6s ease;
 }
 
 .btn-game:active {
@@ -159,7 +119,7 @@ overflow-y: auto;
     color: white;
     cursor: pointer;
 
-    background: linear-gradient(135deg, #ff66cc, #8e2de2);
+    background: radial-gradient(circle at top left, #ff66cc, #8e2de2);
     box-shadow: 0 6px 15px rgba(0,0,0,0.6);
 }
 
@@ -241,7 +201,7 @@ cadastro-box {
 .btn-game.salvar {
     width: 100%;
     height: 50px;
-    border-radius: 30px;
+    border-radius: 30px ;
     font-size: 1.1rem;
     margin-top: 10px;
 }
@@ -267,55 +227,35 @@ cadastro-box {
     border-radius: 12px;
     text-align: center;
 }
-/* ===== MOBILE AJUSTADO ===== */
-@media (max-width: 768px) {
 
-    body {
-        overflow-x: hidden;
-    }
+/* garante alinhamento perfeito */
+.celula-botoes .btn-game {
+    display: block;
+}
 
-    /* CONTAINER CENTRAL */
-    .conteudo {
-        width: 95%;
-        max-width: 420px;   /* LIMITE PRA NÃO FICAR GIGANTE */
-        margin: 0 auto;
-    }
+/* PARTICULAS */
+.particulas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
 
-    /* TEXTO */
-    .conteudo p {
-        font-size: 14px;
-        line-height: 1.5;
-    }
+.particula {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    animation: subir linear infinite;
+}
+.particulas {
+    position: fixed;
+    inset: 0;
+}
 
-    .conteudo h1, 
-    .conteudo h2 {
-        font-size: 18px;
-    }
 
-    /* IMAGENS */
-    .conteudo img {
-        width: 100%;
-        max-height: 200px;
-        object-fit: cover;
-        border-radius: 12px;
-    }
-
-    /* VÍDEO */
-    .conteudo iframe {
-        width: 100%;
-        height: 180px;
-        border-radius: 12px;
-    }
-
-    /* MENU LATERAL */
-    .menu-lateral {
-        transform: scale(0.8);  /* diminui os botões A B X Y */
-    }
-
-    /* BOTÕES CADASTRO / LISTA */
-    .btn-cadastro,
-    .btn-lista {
-        width: 70%;
-        font-size: 14px;
-    }
+@keyframes subir {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
 }
